@@ -1,0 +1,54 @@
+#!/bin/bash
+
+/opt/pezy/pzwgs/bin/pipeline.py \
+    --ref /scratch/local/data/chm13/chm13v2.0_maskedY_rCRS.fa \
+    --autosome_interval /scratch/local/data/chm13/intervals/autosome.bed \
+    --PAR_interval /scratch/local/data/chm13/intervals/PAR.bed \
+    --chrX_interval /scratch/local/data/chm13/intervals/chrX.bed \
+    --chrY_interval /scratch/local/data/chm13/intervals/chrY.bed \
+    --stable_sort ¥
+    --no_bqsr \
+    --work_dir /scratch/local/tmp \
+    --preset_vc gatk-pcr-free \
+    --strip_bwa_default_option \
+    --bwa_thread_num 16 \
+    --append_bwa "-b bwamem_compatible -b bwamem2_matesw -Y -T 0 -K 640000000" \
+    --append_vc "--emit_ref_confidence GVCF" \
+    --out_cram /mnt/pool3/genome/data/1000Genome/results/HG00096/HG00096.cram \
+    --out_vcf /mnt/pool3/genome/data/1000Genome/results/HG00096/HG00096.g.vcf \
+    --fq1 /mnt/beegfs/data/1000Genome/HG00096/HG00096_0_1.fastq.gz \
+    --fq2 /mnt/beegfs/data/1000Genome/HG00096/HG00096_0_2.fastq.gz \
+    --RGTXT "@RG\tID:HG00096_CGGACAAC-TCCGGATT_HCJ2HDSXX_L001\tPL:illumina\tPM:Unknown\tLB:HG00096\tDS:GRCh38\tSM:HG00096\tCN:NYGenome\tPU:HCJ2HDSXX.1.CGGACAAC" \
+    --fq1 /mnt/beegfs/data/1000Genome/HG00096/HG00096_1_1.fastq.gz \
+    --fq2 /mnt/beegfs/data/1000Genome/HG00096/HG00096_1_2.fastq.gz \
+    --RGTXT "@RG\tID:HG00096_CGGACAAC-TCCGGATT_HCJ2HDSXX_L002\tPL:illumina\tPM:Unknown\tLB:HG00096\tDS:GRCh38\tSM:HG00096\tCN:NYGenome\tPU:HCJ2HDSXX.2.CGGACAAC" \
+    --fq1 /mnt/beegfs/data/1000Genome/HG00096/HG00096_2_1.fastq.gz \
+    --fq2 /mnt/beegfs/data/1000Genome/HG00096/HG00096_2_2.fastq.gz \
+    --RGTXT "@RG\tID:HG00096_CGGACAAC-TCCGGATT_HCJ2HDSXX_L003\tPL:illumina\tPM:Unknown\tLB:HG00096\tDS:GRCh38\tSM:HG00096\tCN:NYGenome\tPU:HCJ2HDSXX.3.CGGACAAC" \
+    --fq1 /mnt/beegfs/data/1000Genome/HG00096/HG00096_3_1.fastq.gz \
+    --fq2 /mnt/beegfs/data/1000Genome/HG00096/HG00096_3_2.fastq.gz \
+    --RGTXT "@RG\tID:HG00096_CGGACAAC-TCCGGATT_HCJ2HDSXX_L004\tPL:illumina\tPM:Unknown\tLB:HG00096\tDS:GRCh38\tSM:HG00096\tCN:NYGenome\tPU:HCJ2HDSXX.4.CGGACAAC" \
+    --fq1 /mnt/beegfs/data/1000Genome/HG00096/HG00096_4_1.fastq.gz \
+    --fq2 /mnt/beegfs/data/1000Genome/HG00096/HG00096_4_2.fastq.gz \
+    --RGTXT "@RG\tID:HG00096_CGGACAAC-TCCGGATT_HFH2JDSXX_L001\tPL:illumina\tPM:Unknown\tLB:HG00096\tDS:GRCh38\tSM:HG00096\tCN:NYGenome\tPU:HFH2JDSXX.1.CGGACAAC" \
+    --fq1 /mnt/beegfs/data/1000Genome/HG00096/HG00096_5_1.fastq.gz \
+    --fq2 /mnt/beegfs/data/1000Genome/HG00096/HG00096_5_2.fastq.gz \
+    --RGTXT "@RG\tID:HG00096_CGGACAAC-TCCGGATT_HFH2JDSXX_L002\tPL:illumina\tPM:Unknown\tLB:HG00096\tDS:GRCh38\tSM:HG00096\tCN:NYGenome\tPU:HFH2JDSXX.2.CGGACAAC" \
+    --fq1 /mnt/beegfs/data/1000Genome/HG00096/HG00096_6_1.fastq.gz \
+    --fq2 /mnt/beegfs/data/1000Genome/HG00096/HG00096_6_2.fastq.gz \
+    --RGTXT "@RG\tID:HG00096_CGGACAAC-TCCGGATT_HFH2JDSXX_L003\tPL:illumina\tPM:Unknown\tLB:HG00096\tDS:GRCh38\tSM:HG00096\tCN:NYGenome\tPU:HFH2JDSXX.3.CGGACAAC" \
+    --fq1 /mnt/beegfs/data/1000Genome/HG00096/HG00096_7_1.fastq.gz \
+    --fq2 /mnt/beegfs/data/1000Genome/HG00096/HG00096_7_2.fastq.gz \
+    --RGTXT "@RG\tID:HG00096_CGGACAAC-TCCGGATT_HFH2JDSXX_L004\tPL:illumina\tPM:Unknown\tLB:HG00096\tDS:GRCh38\tSM:HG00096\tCN:NYGenome\tPU:HFH2JDSXX.4.CGGACAAC" \
+    --fq1 /mnt/beegfs/data/1000Genome/HG00096/HG00096_8_1.fastq.gz \
+    --fq2 /mnt/beegfs/data/1000Genome/HG00096/HG00096_8_2.fastq.gz \
+    --RGTXT "@RG\tID:HG00096_CGGACAAC-TCCGGATT_HFHJKDSXX_L001\tPL:illumina\tPM:Unknown\tLB:HG00096\tDS:GRCh38\tSM:HG00096\tCN:NYGenome\tPU:HFHJKDSXX.1.CGGACAAC" \
+    --fq1 /mnt/beegfs/data/1000Genome/HG00096/HG00096_9_1.fastq.gz \
+    --fq2 /mnt/beegfs/data/1000Genome/HG00096/HG00096_9_2.fastq.gz \
+    --RGTXT "@RG\tID:HG00096_CGGACAAC-TCCGGATT_HFHJKDSXX_L002\tPL:illumina\tPM:Unknown\tLB:HG00096\tDS:GRCh38\tSM:HG00096\tCN:NYGenome\tPU:HFHJKDSXX.2.CGGACAAC" \
+    --fq1 /mnt/beegfs/data/1000Genome/HG00096/HG00096_10_1.fastq.gz \
+    --fq2 /mnt/beegfs/data/1000Genome/HG00096/HG00096_10_2.fastq.gz \
+    --RGTXT "@RG\tID:HG00096_CGGACAAC-TCCGGATT_HFHJKDSXX_L003\tPL:illumina\tPM:Unknown\tLB:HG00096\tDS:GRCh38\tSM:HG00096\tCN:NYGenome\tPU:HFHJKDSXX.3.CGGACAAC" \
+    --fq1 /mnt/beegfs/data/1000Genome/HG00096/HG00096_11_1.fastq.gz \
+    --fq2 /mnt/beegfs/data/1000Genome/HG00096/HG00096_11_2.fastq.gz \
+    --RGTXT "@RG\tID:HG00096_CGGACAAC-TCCGGATT_HFHJKDSXX_L004\tPL:illumina\tPM:Unknown\tLB:HG00096\tDS:GRCh38\tSM:HG00096\tCN:NYGenome\tPU:HFHJKDSXX.4.CGGACAAC"
